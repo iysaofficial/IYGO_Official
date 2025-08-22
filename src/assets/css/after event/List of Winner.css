@@ -1,0 +1,150 @@
+/* header start */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.low-header-section{
+    background: #fff;
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.low-header-section:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(45deg, #ff0081, #6827b0); */
+    background: #686D76;
+    border-radius: 0 0 50% 50%/0 0 100% 100%;
+    transform: scaleX(1.5);
+}
+
+.low-header-section .low-header-content{
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+.low-header-section .low-header-content h2{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-size: 3em;
+}
+
+
+/* header end */
+
+.website-event-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 100vh; */
+    padding: 4rem 0;
+    background: #fff;
+}
+
+.container 
+{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.container .box 
+{
+    flex: 1 1 calc(33.33% - 30px);
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.095);
+}
+
+
+
+.container .box::before 
+{
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #121317 ;
+    transition: 0.5s ease-in-out;
+}
+
+.container .box:hover::before 
+{
+    width: 100%;
+}
+
+.container .box .content 
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.container .box .content .icon 
+{
+    font-size: 2.5em;
+    position: relative;
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #121317;
+}
+
+.container .box .content .text a 
+{
+    font-size: 1.3em;
+    font-weight: 500;
+    color: #121317;
+    transition: 0.5s ease-in-out;
+    text-decoration: none;
+}
+
+.container .box .content .text p 
+{
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #999;
+    transition: 0.5s ease-in-out;
+}
+
+.container .box:hover .content .text a,
+.container .box:hover .content .text p,
+.container .box:hover .content .icon 
+{
+    color: #fff;
+}
+@media (max-width: 1024px) {
+    .container .box {
+        flex: 1 1 calc(50% - 30px);
+    }
+}
+
+@media (max-width: 480px) {
+    .container .box {
+        flex: 1 1 100%;
+    }
+}
