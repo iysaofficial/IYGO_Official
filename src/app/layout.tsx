@@ -1,10 +1,11 @@
-import GalleryComp from '@/components/GalleryComp';
-import NavbarComp from '@/components/NavbarComp';
-import FooterComp from '@/components/FooterComp';
-import { ReactNode } from 'react';
+import GalleryComp from "@/components/GalleryComp";
+import NavbarComp from "@/components/NavbarComp";
+import FooterComp from "@/components/FooterComp";
+import Script from "next/script";
+import { ReactNode } from "react";
 
 export const metadata = {
-  title: 'IYGO Official'
+  title: "IYGO Official",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -21,20 +22,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
 
         {/* Google Analytics */}
-        <script
+        <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-RDTF7LVW17"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+              window.dataLayer = window.dataLayer || [];  
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-RDTF7LVW17');
-            `,
-          }}
-        />
+            `}
+        </Script>
       </head>
       <body>
         <NavbarComp />
@@ -42,7 +41,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <br />
         <br />
         <br />
-        <GalleryComp/>
+        <GalleryComp />
         <br />
         <br />
         <br />
