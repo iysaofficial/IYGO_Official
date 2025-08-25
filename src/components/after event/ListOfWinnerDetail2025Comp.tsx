@@ -60,7 +60,7 @@ const ListOfWinnerDetail2025Comp = () => {
                     <div className="content">
                         <h2>Curation</h2>
                         <br />
-                        <Link href="#" target="_blank" className="low-detail-document-button">Coming Soon</Link>
+                        <Link href="https://drive.google.com/drive/folders/1plkFOYoJpjvu_tEjbH9QcV20LnVwwQPj?usp=sharing" target="_blank" className="low-detail-document-button">Download</Link>
                     </div>
                 </div>
 

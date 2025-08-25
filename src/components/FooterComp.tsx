@@ -25,7 +25,7 @@ const FooterComp = () => {
                     </ul>
                     <ul className="box">
                         <li className="link_name">Information Link</li>
-                        <li><Link href="/#contact">Contact</Link></li>
+                        <li><Link href="/#contact-section">Contact</Link></li>
                         <li><Link href="https://iysa.or.id" target="_blank">IYSA Main Website</Link></li>
                         <li><Link href="https://iysaolympiad.or.id" target="_blank">IYSA Olympiad Main Website</Link></li>
                     </ul>
