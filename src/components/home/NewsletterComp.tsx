@@ -6,7 +6,7 @@ const NewsletterComp = () =>{
         const scriptURL =
         "https://script.google.com/macros/s/AKfycbwfw1dAhzyY6p6crVCCuoEXzb_E7hBOi8cYuIBu_-JZzz2a25h-tCvT6Xd3dUH9Mx2fQA/exec";
 
-        const form = document.forms.namedItem("regist-form1");
+        const form = document.forms.namedItem("home-newsletter");
 
         if (form) {
         const handleSubmit = async (e: Event) => {
@@ -40,7 +40,7 @@ const NewsletterComp = () =>{
                 <div className="newsletter-subscribe_wrapper">
                     <h2>Subscribe Now!</h2>
                     <p>Subscribe to our newsletter to receive our latest news</p>
-                    <form action="" method="POST" name="regist-form1">
+                    <form action="" method="POST" name="home-newsletter">
                         <div className="inner">
                             <input type="email" name="Email" placeholder="Enter Email" />
                         </div>

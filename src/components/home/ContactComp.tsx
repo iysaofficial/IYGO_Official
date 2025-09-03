@@ -1,6 +1,38 @@
+"use client";
+import React, { useEffect } from "react";
 import Link from "next/link"
 
 const ContactComp = () =>{
+    useEffect(() => {
+        const scriptURL =
+        "https://script.google.com/macros/s/AKfycbzdgUOy_s6zjJQTgqXQ7GX3H1_w6TvWq1hsBZgH0mSREWt3qXCKA34-qo74-jfDVbHE/exec";
+
+        const form = document.forms.namedItem("home-contact");
+
+        if (form) {
+        const handleSubmit = async (e: Event) => {
+            e.preventDefault();
+            try {
+            await fetch(scriptURL, {
+                method: "POST",
+                body: new FormData(form),
+            });
+            alert("Message sent successfully!");
+            form.reset();
+            } catch (error) {
+            console.error("Error:", error);
+            alert("Failed to send Message.");
+            }
+        };
+
+        form.addEventListener("submit", handleSubmit);
+
+        // cleanup listener
+        return () => {
+            form.removeEventListener("submit", handleSubmit);
+        };
+        }
+    }, []);
     return(
         <>
         <section className="contact-section" id="contact-section">
@@ -37,21 +69,21 @@ const ContactComp = () =>{
 
                 <div className="contactForm">
                     <h2>Send a Message</h2>
-                    <form action="https://formspree.io/f/mgegjprw" method="POST">
+                    <form action="" method="POST" name="home-contact">
                     <div className="formBox">
                         
                         <div className="inputBox w50">
-                            <input type="text" name="name" required/>
+                            <input type="text" name="Name" required/>
                             <span>Name</span>
                         </div>
                         
                         <div className="inputBox w50">
-                            <input type="email" name="email" required/>
+                            <input type="email" name="Email" required/>
                             <span>Email</span>
                         </div>
                        
                         <div className="inputBox w100">
-                            <textarea name="message" required></textarea>
+                            <textarea name="Message" required></textarea>
                             <span>Message</span>
                         </div>
                         <div className="inputBox w100">
