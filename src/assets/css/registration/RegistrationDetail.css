@@ -1,0 +1,344 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #1e293b;
+    background-color: #f8fafc;
+}
+
+/* Page Container */
+.page-container {
+    min-height: 100vh;
+}
+
+/* Header Section */
+.header-section {
+    background: linear-gradient(135deg, #121317 0%, #686D76 100%);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0 0 1rem 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.title-underline {
+    width: 100px;
+    height: 4px;
+    background-color: #686D76;
+    margin: 0 auto 2rem auto;
+    border-radius: 2px;
+}
+
+.event-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Instruction Section */
+.instruction-section {
+    max-width: 1000px;
+    margin: 0 auto 3rem auto;
+    padding: 0 2rem;
+}
+
+.instruction-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.instruction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.instruction-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.instruction-number {
+    width: 32px;
+    height: 32px;
+    background-color: #121317;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.instruction-text {
+    margin: 0;
+    color: #4b5563;
+}
+
+/* Registration Form */
+.registration-form {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem 2rem;
+}
+
+.form-section {
+    background-color: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.section-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #121317;
+    margin: 0 0 1rem 0;
+}
+
+.section-underline {
+    width: 80px;
+    height: 3px;
+    background-color: #686D76;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Field Layout */
+.field-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.field-note {
+    background-color: #f1f5f9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.field-note p {
+    margin-bottom: 0.5rem;
+}
+
+.field-note p:last-child {
+    margin-bottom: 0;
+}
+
+.example-box {
+    background-color: white;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    font-family: monospace;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+}
+
+/* Form Controls */
+.input-field, 
+.select-field {
+    padding: 1rem;
+    border-radius: 8px;
+    border: 2px solid #e5e7eb;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    background-color: white;
+    outline: none;
+}
+
+.select-field {
+    cursor: pointer;
+}
+
+.textarea-field {
+    padding: 1rem;
+    border-radius: 8px;
+    border: 2px solid #e5e7eb;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    background-color: white;
+    outline: none;
+    min-height: 120px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.input-field:focus, 
+.select-field:focus, 
+.textarea-field:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.char-counter {
+    font-size: 0.875rem;
+    color: #64748b;
+    text-align: right;
+    margin-top: 0.5rem;
+}
+
+/* Submit Button */
+.submit-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.submit-button {
+    background-color: #121317;
+    color: white;
+    padding: 1rem 3rem;
+    font-size: 1.125rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.submit-button:hover {
+    background-color: #686D76;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+.submit-button:disabled {
+    cursor: not-allowed;
+    position: relative;
+}
+
+.submit-button:disabled::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin: auto;
+    border: 2px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .header-section {
+        padding: 3rem 1rem;
+    }
+
+    .form-section {
+        padding: 1.5rem;
+    }
+
+    .field-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .instruction-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .instruction-number {
+        align-self: center;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-section {
+        padding: 2rem 1rem;
+    }
+
+    .main-title {
+        font-size: 1.75rem;
+    }
+
+    .registration-form {
+        padding: 0 1rem 2rem 1rem;
+    }
+
+    .form-section {
+        padding: 1rem;
+    }
+
+    .field-grid {
+        gap: 1.5rem;
+    }
+
+    .submit-button {
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+    }
+}

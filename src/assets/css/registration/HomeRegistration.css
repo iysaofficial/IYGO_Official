@@ -1,0 +1,119 @@
+/* Registration Section Styles */
+.registration-section {
+  /* background: #f8fafc; */
+  /* padding: 80px 20px; */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.registration-container {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.registration-header {
+  margin-bottom: 30px;
+}
+
+.registration-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 20px 0;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: -0.5px;
+}
+
+.registration-subtitle {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.7;
+  margin: 0;
+  color: #64748b;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.registration-links {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.registration-link {
+  display: inline-block;
+  padding: 20px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  border: 2px solid;
+  min-width: 220px;
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  background: #121317;
+  color: white;
+  border-color: #121317;
+}
+
+.registration-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.25);
+}
+
+.registration-link.international:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.registration-link.national:hover {
+  background: #121317;
+  color: white;
+  border-color: #121317;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .registration-section {
+    padding: 40px 15px;
+  }
+  
+  .registration-title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  .registration-subtitle {
+    font-size: 1rem;
+  }
+  
+  .registration-links {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .registration-link {
+    width: 100%;
+    max-width: 280px;
+    padding: 15px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .registration-title {
+    font-size: 1.6rem;
+  }
+  
+  .registration-subtitle {
+    font-size: 0.9rem;
+  }
+}
