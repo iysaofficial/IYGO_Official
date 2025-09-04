@@ -71,7 +71,7 @@ const ContactComp = () =>{
                     <h2>Send a Message</h2>
                     <form action="" method="POST" name="home-contact">
                     <div className="formBox">
-                        
+                        <input type="hidden" name="Event" value="IYGO" readOnly />
                         <div className="inputBox w50">
                             <input type="text" name="Name" required/>
                             <span>Name</span>
