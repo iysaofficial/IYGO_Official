@@ -54,7 +54,7 @@ const ContactComp = () =>{
                             </li>
                             <li>
                                 <span><img src="/assets/images/icon/call.png" alt="" /></span>
-                                <span>+6283870026877</span>
+                                <span>+6288213248890</span>
                             </li>
                         </ul>
                     </div>
