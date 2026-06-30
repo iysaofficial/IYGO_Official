@@ -24,65 +24,57 @@ const NationalOfflineComp: React.FC = () => {
   };
 
   useEffect(() => {
-    const scriptURL =
-      "";
-
     const form = document.forms.namedItem("regist-form");
-    let buttonCounter = 0;
+    let submitted = false;
 
     if (form) {
       const handleSubmit = async (e: Event) => {
         e.preventDefault();
-        
-        if (buttonCounter === 0) {
-          try {
-            buttonCounter++;
-            const submitButton = form.querySelector('.submit-button') as HTMLButtonElement;
-            
-            // Disable button and show loading state
-            if (submitButton) {
-              submitButton.disabled = true;
-              submitButton.textContent = 'SENDING...';
-              submitButton.style.backgroundColor = '#6b7280';
-            }
-            
-            await fetch(scriptURL, {
-              method: "POST",
-              body: new FormData(form),
-            });
-            
-            // Success state
-            if (submitButton) {
-              submitButton.textContent = 'SUCCESSFULLY SENT!';
-              submitButton.style.backgroundColor = '#10b981';
-            }
-            
-            // Redirect after 2 seconds
-            setTimeout(() => {
-              window.location.href = "/registration/success";
-            }, 2000);
-            
-          } catch (error) {
-            console.error("Error while sending data:", error);
-            
-            // Error state
-            const submitButton = form.querySelector('.submit-button') as HTMLButtonElement;
-            if (submitButton) {
-              submitButton.textContent = 'FAILED TO SEND - TRY AGAIN';
-              submitButton.style.backgroundColor = '#ef4444';
-              submitButton.disabled = false;
-            }
-            buttonCounter = 0;
+        if (submitted) return;
+
+        const submitButton = form.querySelector('.submit-button') as HTMLButtonElement;
+
+        try {
+          submitted = true;
+          if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'SENDING...';
+            submitButton.style.backgroundColor = '#6b7280';
           }
+
+          const response = await fetch('/api/register', {
+            method: 'POST',
+            body: new FormData(form),
+          });
+
+          const data = await response.json();
+
+          if (!response.ok) {
+            throw new Error(data.error || 'Registration failed');
+          }
+
+          if (submitButton) {
+            submitButton.textContent = 'SUCCESSFULLY SENT!';
+            submitButton.style.backgroundColor = '#10b981';
+          }
+
+          setTimeout(() => {
+            window.location.href = '/registration/success';
+          }, 2000);
+
+        } catch (error) {
+          console.error('Registration error:', error);
+          if (submitButton) {
+            submitButton.textContent = error instanceof Error ? error.message : 'FAILED - TRY AGAIN';
+            submitButton.style.backgroundColor = '#ef4444';
+            submitButton.disabled = false;
+          }
+          submitted = false;
         }
       };
 
-      form.addEventListener("submit", handleSubmit);
-
-      // Cleanup listener
-      return () => {
-        form.removeEventListener("submit", handleSubmit);
-      };
+      form.addEventListener('submit', handleSubmit);
+      return () => form.removeEventListener('submit', handleSubmit);
     }
   }, []);
 

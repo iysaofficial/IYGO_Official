@@ -9,6 +9,9 @@ const SuccessComp: React.FC = () => {
         <p className="success-message">
           Thank you for registering. Your registration data has been successfully sent.
         </p>
+        <p className="success-message">
+          You will receive an email with your dashboard login credentials at dashboard.iyora.or.id
+        </p>
         <Link href="/" className="success-button">Back to Home</Link>
       </div>
     </div>
