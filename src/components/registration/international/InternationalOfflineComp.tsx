@@ -1,4 +1,7 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
+import EmailGateComp from "@/components/registration/EmailGateComp";
 
 interface FormState {
   selectedMaxNamaLengkap: string;
@@ -10,6 +13,7 @@ const InternationalOfflineComp: React.FC = () => {
     selectedMaxNamaLengkap: "",
     selectedMaxProject: ""
   });
+  const [verifiedEmail, setVerifiedEmail] = useState<string | null>(null);
   
   const maxNameChars = 180;
 
@@ -85,24 +89,29 @@ const InternationalOfflineComp: React.FC = () => {
     return '#64748b'; // Default gray
   };
 
+  if (!verifiedEmail) {
+    return <EmailGateComp onVerified={setVerifiedEmail} />;
+  }
+
   return (
     <div className="page-container">
       {/* Header Section */}
       <HeaderSection />
-      
+
       {/* Instruction Section */}
       <InstructionSection />
 
       {/* Registration Form */}
       <div className="registration-form">
         <form name="regist-form">
-          
+
           {/* BIODATA SECTION */}
-          <BiodataSection 
+          <BiodataSection
             selectedMaxNamaLengkap={formState.selectedMaxNamaLengkap}
             handleInputNameChange={handleInputNameChange}
             maxNameChars={maxNameChars}
             charCounterColor={getCharCounterColor(formState.selectedMaxNamaLengkap.length, maxNameChars)}
+            verifiedEmail={verifiedEmail}
           />
 
           {/* DATA SEKOLAH SECTION */}
@@ -172,13 +181,15 @@ interface BiodataSectionProps {
   handleInputNameChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   maxNameChars: number;
   charCounterColor: string;
+  verifiedEmail?: string | null;
 }
 
 const BiodataSection: React.FC<BiodataSectionProps> = ({
   selectedMaxNamaLengkap,
   handleInputNameChange,
   maxNameChars,
-  charCounterColor
+  charCounterColor,
+  verifiedEmail
 }) => (
   <section className="form-section">
     <div className="section-header">
@@ -459,6 +470,9 @@ const BiodataSection: React.FC<BiodataSectionProps> = ({
           name="LEADER_EMAIL"
           className="input-field"
           placeholder="Enter Your Leader Email Address"
+          defaultValue={verifiedEmail ?? ""}
+          readOnly={!!verifiedEmail}
+          style={verifiedEmail ? { opacity: 0.7, cursor: "not-allowed" } : {}}
           required
         />
       </div>

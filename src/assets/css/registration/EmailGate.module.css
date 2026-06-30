@@ -1,0 +1,171 @@
+.gateWrapper {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.gateCard {
+  background: #1a1d24;
+  border: 1px solid #2a2d36;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+}
+
+.gateIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.gateTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0 0 0.75rem;
+}
+
+.gateDesc {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 1.75rem;
+}
+
+.gateForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.emailInput {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: #121317;
+  border: 1.5px solid #2a2d36;
+  border-radius: 10px;
+  color: #f1f5f9;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.emailInput:focus {
+  border-color: #ef4444;
+}
+
+.emailInput::placeholder {
+  color: #475569;
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+}
+
+.emailInput:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.errorMsg {
+  font-size: 0.8rem;
+  color: #ef4444;
+  text-align: left;
+  margin: 0;
+}
+
+.continueBtn {
+  width: 100%;
+  padding: 0.875rem;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.continueBtn:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.continueBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Already exists state */
+.existsBox {
+  background: #1e1a0e;
+  border: 1.5px solid #f59e0b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.existsIcon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.existsTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f59e0b;
+  margin: 0 0 0.5rem;
+}
+
+.existsDesc {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+}
+
+.existsDesc strong {
+  color: #f1f5f9;
+}
+
+.dashboardBtn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75rem;
+  background: #f59e0b;
+  color: #000;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-bottom: 0.625rem;
+  box-sizing: border-box;
+  transition: background 0.2s;
+}
+
+.dashboardBtn:hover {
+  background: #d97706;
+}
+
+.tryOtherBtn {
+  display: block;
+  width: 100%;
+  padding: 0.625rem;
+  background: transparent;
+  color: #64748b;
+  font-size: 0.8rem;
+  border: 1px solid #2a2d36;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tryOtherBtn:hover {
+  color: #94a3b8;
+  border-color: #475569;
+}
