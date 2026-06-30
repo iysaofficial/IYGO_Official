@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { createPublicClient, computeRegistrationStatus, RegistrationStatus } from "@/lib/supabase-public";
+import { createPublicClient, computeRegistrationStatus, EVENT_SLUG, RegistrationStatus } from "@/lib/supabase-public";
 
 interface EventData {
   registration_open_at: string | null;
@@ -35,9 +35,7 @@ const STATUS_UI: Record<RegistrationStatus, { bg: string; border: string; icon: 
   },
 };
 
-interface Props { eventSlug: string; }
-
-export default function RegistrationStatusBanner({ eventSlug }: Props) {
+export default function RegistrationStatusBanner() {
   const [eventData, setEventData] = useState<EventData | null>(null);
   const [status, setStatus] = useState<RegistrationStatus>("coming_soon");
   const [loading, setLoading] = useState(true);
@@ -47,16 +45,16 @@ export default function RegistrationStatusBanner({ eventSlug }: Props) {
     supabase
       .from("events")
       .select("registration_open_at, registration_close_at, event_date_start, is_active, tagline, venue")
-      .eq("slug", eventSlug)
+      .eq("slug", EVENT_SLUG)
       .single()
-      .then(({ data }) => {
-        if (data) {
+      .then(({ data, error }) => {
+        if (data && !error) {
           setEventData(data as EventData);
           setStatus(computeRegistrationStatus(data.registration_open_at, data.registration_close_at, data.is_active));
         }
         setLoading(false);
       });
-  }, [eventSlug]);
+  }, []);
 
   if (loading || !eventData) return null;
 

@@ -3,9 +3,13 @@ import { createClient } from "@supabase/supabase-js";
 export function createPublicClient() {
   return createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJuY2xkdmR3cmNpcG5sZ2R2Y3hyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3NjUzMzQsImV4cCI6MjA5ODM0MTMzNH0.ZzXWj6ASL2AbCUqt9_bpMDLyoIQjNxcE5XMM2T_b11k"
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 }
+
+// Single source of truth for this event's slug.
+// Set NEXT_PUBLIC_EVENT_SLUG in .env.local — the only thing to change per event website.
+export const EVENT_SLUG = process.env.NEXT_PUBLIC_EVENT_SLUG!;
 
 export type RegistrationStatus = "open" | "coming_soon" | "closed";
 

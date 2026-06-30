@@ -208,10 +208,15 @@ export async function POST(request: NextRequest) {
     const supabase = createAdminClient();
 
     // ── 3. Get event_id for slug "iygo" ─────────────────────────────────────
+    const eventSlug = process.env.NEXT_PUBLIC_EVENT_SLUG;
+    if (!eventSlug) {
+      return NextResponse.json({ success: false, error: "Event not configured." }, { status: 500, headers: CORS_HEADERS });
+    }
+
     const { data: eventData, error: eventError } = await supabase
       .from("events")
       .select("id")
-      .eq("slug", "iygo")
+      .eq("slug", eventSlug)
       .single();
 
     if (eventError || !eventData) {

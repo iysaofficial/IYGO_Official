@@ -96,7 +96,7 @@ const NationalOfflineComp: React.FC = () => {
 
   return (
     <div className="page-container">
-      <RegistrationStatusBanner eventSlug="iygo" />
+      <RegistrationStatusBanner />
       {/* Header Section */}
       <HeaderSection />
 
