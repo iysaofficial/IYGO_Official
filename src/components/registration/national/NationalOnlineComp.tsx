@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import EmailGateComp from "@/components/registration/EmailGateComp";
+import RegistrationStatusBanner from "@/components/registration/RegistrationStatusBanner";
 
 interface FormState {
   selectedMaxNamaLengkap: string;
@@ -95,6 +96,7 @@ const NationalOnlineComp: React.FC = () => {
 
   return (
     <div className="page-container">
+      <RegistrationStatusBanner eventSlug="iygo" />
       {/* Header Section */}
       <HeaderSection />
 
@@ -122,7 +124,7 @@ const NationalOnlineComp: React.FC = () => {
 
           {/* INFORMASI UMUM SECTION */}
           <InformasiUmumSection />
-          
+
           <input type="hidden" name="PRICE" value="Rp. 300.000" readOnly />
           
           {/* Submit Button */}
